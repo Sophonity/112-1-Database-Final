@@ -7,7 +7,7 @@
     "dev": "nodemon",
     "lint": "eslint src/**/*.ts",
     "build": "tsc && tsc-alias && ts-node script/tool.ts",
-    "start": "node build/index.js"
+    "start": "node build/src/index.ts"
   },
   "author": "",
   "license": "ISC",
