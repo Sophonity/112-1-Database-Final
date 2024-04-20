@@ -27,7 +27,7 @@ databaseConnection();
 app.use(
   cors({
     credentials: true,
-    origin: `${env.CLIENT_URL}`,
+    origin: [`${env.CLIENT_URL}`, "http://localhost:3000"],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   })
 );
