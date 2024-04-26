@@ -24,6 +24,8 @@ const app = express();
 
 databaseConnection();
 
+console.log(env.CLIENT_URL);
+
 app.use(
   cors({
     credentials: true,
