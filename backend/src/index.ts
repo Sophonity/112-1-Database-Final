@@ -24,10 +24,12 @@ const app = express();
 
 databaseConnection();
 
+console.log(env.CLIENT_URL);
+
 app.use(
   cors({
     credentials: true,
-    origin: `${env.CLIENT_URL}`,
+    origin: [`${env.CLIENT_URL}`, "http://localhost:3000", "https://112-1-database-final-join-us.vercel.app"],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   })
 );

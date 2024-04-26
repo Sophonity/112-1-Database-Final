@@ -107,7 +107,7 @@ const AuthForm = () => {
   return (
     <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
       <div className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10">
-        <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
+        {/* <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
           {variant === 'REGISTER' && (
             <Input
               disabled={isSubmitting}
@@ -147,7 +147,7 @@ const AuthForm = () => {
                 label="確認密碼"
                 type="password"
               />
-              {/* age shoud > 0 */}
+               // age shoud > 0
               <Input
                 disabled={isSubmitting}
                 register={register}
@@ -209,7 +209,7 @@ const AuthForm = () => {
               {variant === 'LOGIN' ? '登入' : '註冊'}
             </Button>
           </div>
-        </form>
+        </form> */}
 
         <div className="mt-6">
           <div className="relative">
@@ -223,15 +223,15 @@ const AuthForm = () => {
 
           <div className="mt-6 flex gap-2">
             <AuthSocialButton icon={BsGoogle} onClick={() => socialAction('google')} />
-            <AuthSocialButton icon={BsFacebook} onClick={() => socialAction('facebook')} />
+            {/* <AuthSocialButton icon={BsFacebook} onClick={() => socialAction('facebook')} /> */}
           </div>
         </div>
-        <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
+        {/* <div className="flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500">
           <div>{variant === 'LOGIN' ? '剛加入資料庫嗎?' : '有帳戶了嗎?'}</div>
           <div onClick={toggleVariant} className="underline cursor-pointer">
             {variant === 'LOGIN' ? '註冊帳戶' : '登入'}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

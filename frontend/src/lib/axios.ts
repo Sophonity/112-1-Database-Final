@@ -9,7 +9,11 @@ import axios from 'axios';
 
 export const url =
   // process.env.NODE_ENV === 'production' ? 'https://api.example.com' : 'http://localhost:8080/api';
-  process.env.BACKEND_URL || 'http://140.112.20.130:8080/api';
+  // process.env.BACKEND_URL || 'http://localhost:8080/api';
+  'https://joinus-backend.onrender.com/api';
+
+// console.log(process.env.BACKEND_URL);
+// console.log(url);
 
 const instance = axios.create({
   baseURL: url,
