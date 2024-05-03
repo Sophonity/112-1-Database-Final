@@ -9,7 +9,7 @@ import axios from 'axios';
 
 export const url =
 process.env.NODE_ENV === 'production' ? 'https://joinus-backend.onrender.com/api' : 'http://localhost:8080/api';
-  // process.env.BACKEND_URL || 'http://localhost:8080/api';
+// process.env.BACKEND_URL || 'http://localhost:8080/api';
 
 // console.log(process.env.BACKEND_URL);
 // console.log(url);
