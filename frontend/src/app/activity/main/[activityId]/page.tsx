@@ -57,6 +57,11 @@ export default function Page({ params }: { params: { activityId: string } }) {
   const status = useCallback(() => {
     if (!activity) return;
     const now = new Date();
+
+    // console.log('display', activity);
+    // console.log('event_start_timestamp', activity.event_start_timestamp);
+    // console.log('event_start_timestamp type', typeof activity.event_start_timestamp);
+
     const eventStart = new Date(activity.event_start_timestamp);
     const eventEnd = new Date(activity.event_end_timestamp);
     const registrationStart = new Date(activity.register_start_timestamp);

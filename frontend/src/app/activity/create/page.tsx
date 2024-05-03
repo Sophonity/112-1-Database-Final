@@ -59,6 +59,25 @@ export default function Page() {
       toast.error('活動開始時間不得早於現在時間');
       return;
     }
+
+    // console.log("event_start_timestamp", data.event_start_timestamp);
+    // console.log("event_start_timestamp type", typeof data.event_start_timestamp);
+    // 媽的，是 string，UTC+8，e.g."2024-05-04T20:28"
+    // 因為是 datetime-local 的 input，所以不會有時區資訊
+    // 應該轉成標準型態的 string
+    // 找到時區，塞進去
+    // let fixedTime = new Date(data.event_start_timestamp).toISOString();
+    // console.log("fixedTime", fixedTime);
+
+    // 但不懂為何 deploy 之後會有問題，不都是 local 的 browser 嗎？
+
+    // Time fixing
+    data.event_start_timestamp = new Date(data.event_start_timestamp).toISOString();
+    data.event_end_timestamp = new Date(data.event_end_timestamp).toISOString();
+    data.register_start_timestamp = new Date(data.register_start_timestamp).toISOString();
+    data.register_end_timestamp = new Date(data.register_end_timestamp).toISOString();
+    // console.log("create", data);
+
     data = {
       ...data,
       category: topic,
@@ -78,6 +97,7 @@ export default function Page() {
         toast.error('新增失敗');
       });
   };
+
   return (
     <div className="mx-auto max-w-[850px] space-y-6">
       <div className="space-y-2 text-center">
