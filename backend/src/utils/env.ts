@@ -7,6 +7,7 @@ export const env = {
   PGPASSWORD: process.env.PGPASSWORD || '123',
   PGPORT: Number(process.env.PGPORT) || 5432,
   CLIENT_URL: process.env.CLIENT_URL || 'http://localhost:3000',
+  CLIENT_URL_DEV: process.env.CLIENT_URL_DEV || 'http://localhost:3000',
   SECRET_KEY: process.env.SECRET_KEY || '878787',
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID || '',
   GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET || '',

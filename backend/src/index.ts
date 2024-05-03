@@ -29,7 +29,7 @@ console.log(env.CLIENT_URL);
 app.use(
   cors({
     credentials: true,
-    origin: [`${env.CLIENT_URL}`, "http://localhost:3000", "https://112-1-database-final-join-us.vercel.app"],
+    origin: [`${env.CLIENT_URL}`, `${env.CLIENT_URL_DEV}`, "http://localhost:3000"],
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   })
 );
