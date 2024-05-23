@@ -49,7 +49,7 @@ const CardDescription = React.forwardRef(
       return <></>;
     }
 
-    let newContent = content.split('\n')
+    const newContent = content.split('\n')
     return (
       <>
         {newContent.map((line, index) => (
