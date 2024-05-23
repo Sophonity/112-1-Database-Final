@@ -67,7 +67,8 @@ export default function KickParticipant({
     <Card className="flex flex-col justify-between w-screen max-w-xl mx-auto mt-10 shadow-lg rounded-lg overflow-hidden">
       <CardHeader className="bg-gray-50 p-6">
         <CardTitle className="text-2xl font-semibold text-gray-900">參與者</CardTitle>
-        <CardDescription className="text-gray-700 mt-2">參與者名單，可以踢人</CardDescription>
+        {/* <CardDescription className="text-gray-700 mt-2">參與者名單，可以踢人</CardDescription> */}
+        <CardDescription className="text-gray-700 mt-2" content='參與者名單，可以踢人'></CardDescription>
       </CardHeader>
       <CardContent className="bg-white p-6 space-y-6 flex-grow">
         <div className=" border-gray-200">
