@@ -118,10 +118,10 @@ export default function Page() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="description">描述</Label>
+                <Label htmlFor="description">活動的描述，記得要留下主揪的聯絡資訊喔！</Label>
                 <Textarea
                   id="description"
-                  placeholder="新增描述"
+                  placeholder="記得要留下主揪的聯絡資訊喔！"
                   {...register('description')}
                   required
                   disabled={isSubmitting}
@@ -160,7 +160,7 @@ export default function Page() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="capacity">人數</Label>
+                <Label htmlFor="capacity">人數，包含自己</Label>
                 <Input
                   id="capacity"
                   placeholder="新增人數"
