@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 
@@ -118,7 +119,11 @@ export default function Page() {
                 />
               </div>
               <div className="space-y-2">
-                <Label htmlFor="description">活動的描述，記得要留下主揪的聯絡資訊喔！</Label>
+                <Label htmlFor="description">活動的描述，記得要留下主揪的聯絡資訊喔！<br/></Label>
+                <Label htmlFor="description">📢不知道怎麼辦出好活動嗎？讓揪團指引來幫忙！<br/></Label>
+                <Link href="https://reurl.cc/vaEpxj" className="text-sm lg:text-lg text-sky-600 font-bold">
+                  📌連結
+                </Link>
                 <Textarea
                   id="description"
                   placeholder="記得要留下主揪的聯絡資訊喔！"
