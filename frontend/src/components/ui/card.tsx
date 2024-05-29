@@ -31,12 +31,40 @@ const CardTitle = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HT
 );
 CardTitle.displayName = 'CardTitle';
 
-const CardDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <p ref={ref} className={cn('text-sm text-muted-foreground', className)} {...props} />
-));
+// const CardDescription = React.forwardRef<
+//   HTMLParagraphElement,
+//   React.HTMLAttributes<HTMLParagraphElement>
+// // HTMLPreElement, 
+// // React.HTMLAttributes<HTMLPreElement> 
+//   // HTMLDivElement,
+//   // React.HTMLAttributes<HTMLDivElement> 
+// >(({ className, ...props }, ref) => (
+//   <p ref={ref} className={cn('text-sm text-muted-foreground break-words', className)} {...props} />
+//   // <pre ref={ref} className={cn('text-sm text-muted-foreground break-words', className)} {...props} />
+//   // <div ref={ref} className={cn('text-sm text-muted-foreground break-words', className)} {...props} />
+// ));
+const CardDescription = React.forwardRef(
+  function ({className, content}: {className: string, content: string|undefined}, ref) {
+    if (!content) {
+      return <></>;
+    }
+
+    const newContent = content.split('\n')
+    return (
+      <>
+        {newContent.map((line, index) => (
+          <p key={index} className={cn('text-sm text-muted-foreground break-words', className)}>{line}</p>
+        ))}
+      </>
+    );
+
+    // let newContent = content.replace('\n', '<br>')
+    // console.log(newContent)
+    // return (
+    //   <p className={cn('text-sm text-muted-foreground break-words', className)}>{newContent}</p>
+    // );
+
+  });
 CardDescription.displayName = 'CardDescription';
 
 const CardContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(

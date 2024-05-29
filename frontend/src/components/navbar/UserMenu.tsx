@@ -71,7 +71,7 @@ const UserMenu = () => {
                 {/* TODO: add route */}
                 <MenuItem label="進入會員中心" onClick={() => handleClick('/user')} />
                 <MenuItem label="修改個人資料" onClick={() => handleClick('/user/profile')} />
-                <MenuItem label="修改個人密碼" onClick={() => handleClick('/user/password')} />
+                {/* <MenuItem label="修改個人密碼" onClick={() => handleClick('/user/password')} /> */}
                 <MenuItem label="我主持的活動" onClick={() => handleClick('/user/host')} />
                 <MenuItem label="我追蹤的活動" onClick={() => handleClick('/user/follow')} />
                 <MenuItem label="我參加的活動" onClick={() => handleClick('/user/join')} />

@@ -91,7 +91,8 @@ export default function ActivityCard({
     <Card className="w-screen max-w-xl mx-auto mt-10 shadow-lg rounded-lg overflow-hidden flex flex-col">
       <CardHeader className="bg-gray-50 p-6">
         <CardTitle className="text-2xl font-semibold text-gray-900">{activity?.title}</CardTitle>
-        <CardDescription className="text-gray-700 mt-2">{activity?.description}</CardDescription>
+        {/* <CardDescription className="text-gray-700 mt-2">{activity?.description}</CardDescription> */}
+        <CardDescription className="text-gray-700 mt-2" content={activity?.description}></CardDescription>
       </CardHeader>
       <CardContent className="bg-white p-6 space-y-6 flex-grow">
         <div className="flex items-center space-x-3">

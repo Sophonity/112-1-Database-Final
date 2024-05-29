@@ -66,7 +66,8 @@ export default function Rating({ activityId, comments, setComments }: RatingProp
     <Card className="flex flex-col justify-between w-screen max-w-xl mx-auto mt-10 shadow-lg rounded-lg overflow-hidden">
       <CardHeader className="bg-gray-50 p-6">
         <CardTitle className="text-2xl font-semibold text-gray-900">評分</CardTitle>
-        <CardDescription className="text-gray-700 mt-2">歡迎留下評分</CardDescription>
+        {/* <CardDescription className="text-gray-700 mt-2">歡迎留下評分</CardDescription> */}
+        <CardDescription className="text-gray-700 mt-2" content='歡迎留下評分'></CardDescription>
       </CardHeader>
       <CardContent className="bg-white p-6 space-y-6 flex-grow flex flex-col">
         <div className=" border-gray-200 flex items-center justify-start">

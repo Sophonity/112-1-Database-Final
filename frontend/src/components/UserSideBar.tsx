@@ -16,11 +16,11 @@ const UserSideBar = () => {
             修改個人資料
           </Link>
         </Button>
-        <Button className="bg-white text-black rounded-lg h-[10vh] hover:bg-neutral-100 transition font-semibold">
+        {/* <Button className="bg-white text-black rounded-lg h-[10vh] hover:bg-neutral-100 transition font-semibold">
           <Link href="/user/password" className="text-sm lg:text-lg">
             變更個人密碼
           </Link>
-        </Button>
+        </Button> */}
         <Separator orientation="horizontal" className="my-2 bg-black" />
         <Button className="bg-white text-black rounded-lg h-[10vh] hover:bg-neutral-100 transition font-semibold">
           <Link href="/user/host" className="text-sm lg:text-lg">
@@ -37,12 +37,12 @@ const UserSideBar = () => {
             我參加的活動
           </Link>
         </Button>
-        <Separator orientation="horizontal" className="my-2 bg-black" />
+        {/* <Separator orientation="horizontal" className="my-2 bg-black" />
         <Button className="bg-white text-black rounded-lg h-[10vh] hover:bg-neutral-100 transition font-semibold">
           <Link href="/chatroom" className="text-sm lg:text-lg">
             聊天室
           </Link>
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

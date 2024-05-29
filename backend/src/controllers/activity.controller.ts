@@ -4,7 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 import { pool } from '@/models/init';
 import { nowDate } from '@/utils/nowDate';
 
-// get 20 activities data
+// get 20 activities data => no
+// get all activities data
 export const getActivityAll = async (req: Request, res: Response) => {
   const category = req.query.category;
 
@@ -17,8 +18,8 @@ export const getActivityAll = async (req: Request, res: Response) => {
       where status = 'active'
       and event_end_timestamp > $1
       order by register_start_timestamp desc
-      limit 20;
       `;
+      // limit 20;
     const values = [timestamp];
     try {
       const result = await pool.query(query, values);
@@ -34,8 +35,8 @@ export const getActivityAll = async (req: Request, res: Response) => {
     and event_end_timestamp > $1    
     and activity_tag = $2
     order by register_start_timestamp asc
-    limit 20;
     `;
+    // limit 20;
     const values = [timestamp, category];
     try {
       const result = await pool.query(query, values);
@@ -43,6 +44,25 @@ export const getActivityAll = async (req: Request, res: Response) => {
     } catch (err) {
       res.status(400).json(err);
     }
+  }
+};
+
+export const getActivityAdmin = async (req: Request, res: Response) => {
+  const query = `
+    SELECT *
+    FROM activity
+    order by register_start_timestamp desc
+    `;
+    // where status = 'active'
+    // and event_end_timestamp > $1
+    // limit 20;
+  // const values = [timestamp];
+  try {
+    // const result = await pool.query(query, values);
+    const result = await pool.query(query);
+    res.status(200).json(result.rows);
+  } catch (err) {
+    res.status(400).json(err);
   }
 };
 

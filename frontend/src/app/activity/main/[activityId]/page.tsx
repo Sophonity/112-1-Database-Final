@@ -57,6 +57,11 @@ export default function Page({ params }: { params: { activityId: string } }) {
   const status = useCallback(() => {
     if (!activity) return;
     const now = new Date();
+
+    // console.log('display', activity);
+    // console.log('event_start_timestamp', activity.event_start_timestamp);
+    // console.log('event_start_timestamp type', typeof activity.event_start_timestamp);
+
     const eventStart = new Date(activity.event_start_timestamp);
     const eventEnd = new Date(activity.event_end_timestamp);
     const registrationStart = new Date(activity.register_start_timestamp);
@@ -119,7 +124,8 @@ export default function Page({ params }: { params: { activityId: string } }) {
       const people = await getActivityMember(params.activityId);
       setCapacity(number_of_participant);
       setParticipants(people);
-      if (member) toast.success('已報名活動');
+      // if (member) toast.success('已報名活動');
+      if (member) toast.success('已報名活動，請務必主動聯絡主揪喔');
     }
     setIsLoading(false);
   };
@@ -136,7 +142,8 @@ export default function Page({ params }: { params: { activityId: string } }) {
         identity={identity}
         isLoading={isLoading}
       />
-      {member?.member_id === activity?.member_id && member?.member_id != undefined && (
+      {/* {member?.member_id === activity?.member_id && member?.member_id != undefined && ( */}
+      {(member?.member_id != undefined) && (identity === "Host") && (
         <KickParticipant
           participants={participants}
           setParticipants={setParticipants}
@@ -144,10 +151,17 @@ export default function Page({ params }: { params: { activityId: string } }) {
           setCapacity={setCapacity}
         />
       )}
-      {member?.member_id !== activity?.member_id &&
+      {/* {member?.member_id !== activity?.member_id &&
         member?.member_id != undefined &&
         activity?.member_id != undefined &&
         activity?.status !== 'cancel' &&
+        (status() === '已結束' || status() === '進行中') && (
+          <Rating activityId={params.activityId} comments={comments} setComments={setComments} />
+        )} */}
+      {(member?.member_id != undefined) &&
+        (activity?.member_id != undefined) &&
+        (activity?.status !== 'cancel') &&
+        (identity === "Participant") &&
         (status() === '已結束' || status() === '進行中') && (
           <Rating activityId={params.activityId} comments={comments} setComments={setComments} />
         )}

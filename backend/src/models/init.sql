@@ -21,13 +21,13 @@ CREATE TABLE IF NOT EXISTS ACTIVITY (
     Activity_id VARCHAR(100) PRIMARY KEY,
     Title VARCHAR(50) NOT NULL,
     Description VARCHAR(500) NOT NULL,
-    Event_start_timestamp timestamp NOT NULL,
-    Event_end_timestamp timestamp NOT NULL,
+    Event_start_timestamp timestamptz NOT NULL,
+    Event_end_timestamp timestamptz NOT NULL,
     Location VARCHAR(500) NOT NULL,
     Capacity INT NOT NULL,
     Status CHAR(10) NOT NULL CHECK (Status IN ('cancel','active')),
-    Register_start_timestamp timestamp NOT NULL,
-    Register_end_timestamp timestamp NOT NULL,
+    Register_start_timestamp timestamptz NOT NULL,
+    Register_end_timestamp timestamptz NOT NULL,
     Non_student_fee INT NOT NULL,
     Student_fee INT NOT NULL,
     Activity_tag VARCHAR(20) NOT NULL
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS MEMBER_FOLLOW_ACTIVITY (
 CREATE TABLE IF NOT EXISTS MEMBER_JOIN_ACTIVITY (
     Member_id VARCHAR(100),
     Activity_id VARCHAR(100),
-    Join_timestamp timestamp NOT NULL,
+    Join_timestamp timestamptz NOT NULL,
     PRIMARY KEY (Member_id, Activity_id, Join_timestamp),
     FOREIGN KEY (Member_id) REFERENCES MEMBER(Member_id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (Activity_id) REFERENCES ACTIVITY(Activity_id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS MEMBER_QUIT_ACTIVITY (
     Member_id VARCHAR(100),
     Activity_id VARCHAR(100),
     -- Kick_admin_id VARCHAR(100),
-    Quit_timestamp timestamp NOT NULL,
+    Quit_timestamp timestamptz NOT NULL,
     PRIMARY KEY (Member_id, Activity_id, Quit_timestamp),
     FOREIGN KEY (Member_id) REFERENCES MEMBER(Member_id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (Activity_id) REFERENCES ACTIVITY(Activity_id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS MESSAGE (
     Message_id VARCHAR(100) PRIMARY KEY,
     Chatgroup_id VARCHAR(100),
     Member_id VARCHAR(100),
-    Message_time timestamp NOT NULL,
+    Message_time timestamptz NOT NULL,
     Message_text VARCHAR(500) NOT NULL,
     FOREIGN KEY (Chatgroup_id) REFERENCES CHAT_GROUP(Chatgroup_id) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (Member_id) REFERENCES MEMBER(Member_id) ON DELETE CASCADE ON UPDATE CASCADE

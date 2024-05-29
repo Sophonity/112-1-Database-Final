@@ -31,6 +31,12 @@ export default function useActivity() {
     return data;
   };
 
+  //getActivityAdmin
+  const getActivityAdmin = async () => {
+    const { data } = await instance.get('/activity/admin', {});
+    return data;
+  };
+
   //getActivityByDescription
   const getActivityByTitle = async ({ title }: getActivityByTitlePayload) => {
     const { data } = await instance.get('/activity/title', {
@@ -232,6 +238,7 @@ export default function useActivity() {
     kickMember,
     findActivityNeedAttention,
     getAllActivity,
+    getActivityAdmin,
     getAllMember,
   };
 }
