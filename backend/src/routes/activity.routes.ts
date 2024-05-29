@@ -1,5 +1,6 @@
 import {
   getActivityAll,
+  getActivityAdmin,
   createActivity,
   followActivity,
   getFollowedActivity,
@@ -26,7 +27,11 @@ import { isAuth } from '@/utils/isAuth';
 
 const router = express.Router();
 
+//getAllActivity
 router.get('/', getActivityAll);
+
+//getActivityAdmin
+router.get('/admin', getActivityAdmin);
 
 // createActivity
 router.post('/', isAuth, createActivity);
