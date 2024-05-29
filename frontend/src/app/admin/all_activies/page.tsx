@@ -6,19 +6,21 @@ import All_Activity from '@/components/cards/All_Activity';
 import { useEffect, useState } from 'react';
 
 export default function Page() {
-  const { getAllActivity, getActivityCapacity, deleteActivity } = useActivity();
+  const { getActivityAdmin, getAllActivity, getActivityCapacity, deleteActivity } = useActivity();
   const [cardData, setCardData] = useState<CardData[]>([]);
   const [activityCounts, setActivityCounts] = useState<{ [key: string]: number }>({});
 
   const handleDelete = async (activity_id: string) => {
     await deleteActivity(activity_id);
-    const newData = await getAllActivity('all');
+    // const newData = await getAllActivity('all');
+    const newData = await getActivityAdmin();
     setCardData(newData);
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getAllActivity('all');
+      // const data = await getAllActivity('all');
+      const data = await getActivityAdmin();
       setCardData(data);
 
       const counts: { [key: string]: number } = {};
@@ -30,7 +32,7 @@ export default function Page() {
     };
 
     fetchData();
-  }, [getAllActivity, getActivityCapacity, deleteActivity]);
+  }, [getActivityAdmin, getAllActivity, getActivityCapacity, deleteActivity]);
 
   return (
     <main className="flex flex-col justify-center min-h-full bg-gray-100 sm:p-5 lg:p-10 space-y-10">
