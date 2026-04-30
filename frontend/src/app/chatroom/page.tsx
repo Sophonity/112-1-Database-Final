@@ -37,6 +37,9 @@ export default function Page() {
     fetchData();
   }, [getJoinedActivity, getChatgroup]);
 
+  // console.log('activityData:', activityData);
+  // console.log('chatgroupData:', chatgroupData);
+
   return (
     <main className="flex flex-col justify-center min-h-full bg-gray-100 sm:p-5 lg:p-10 space-y-10">
       {activityData?.map((activity) => (
